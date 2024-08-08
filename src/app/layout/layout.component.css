@@ -1,0 +1,19 @@
+.nav-text {
+    color: white;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+}
+
+.navbar-right .navbar-text {
+    margin-right: 15px;
+}
+
+.navbar-right .btn {
+    padding-right: 10px;
+}
+
+  
