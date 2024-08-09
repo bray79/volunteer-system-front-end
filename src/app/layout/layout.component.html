@@ -4,8 +4,8 @@
         <a class="navbar-brand" href="#">Admin Dashboard</a>
       </div>
       <ul class="nav navbar-nav">
-        <li class="nav-text"><a href="#">Manage Volunteers</a></li>
-        <li class="nav-text"><a href="#">Manage Opportunities</a></li>
+        <li class="nav-text"><a [routerLink]="['/manageVolunteer']">Manage Volunteers</a></li>
+        <li class="nav-text"><a [routerLink]="['/manageOpportunities']">Manage Opportunities</a></li>
       </ul>
       <div class="navbar-right">
         <span class="navbar-text">{{loggedUser?.email}}</span>
@@ -13,6 +13,5 @@
       </div>
     </div>
 </nav>
-  
 
-<router-outlet></router-outlet>
+<!-- <router-outlet></router-outlet> -->

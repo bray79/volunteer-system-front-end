@@ -3,6 +3,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ManageVolunteerComponent } from './manage-volunteer/manage-volunteer.component';
+import { ManageOpportunitiesComponent } from './manage-opportunities/manage-opportunities.component';
 
 const routes: Routes = [
   {
@@ -13,6 +15,14 @@ const routes: Routes = [
   { 
     path: 'login', 
     component: LoginComponent 
+  },
+  {
+    path: 'manageVolunteer',
+    component: ManageVolunteerComponent
+  },
+  {
+    path: 'manageOpportunities',
+    component: ManageOpportunitiesComponent
   },
   {
     path: '',
