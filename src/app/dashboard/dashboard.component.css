@@ -1,0 +1,54 @@
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: flex-start; /* Align at the top */
+    height: 100vh;
+    padding: 20px;
+}
+
+.dashboard-title {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.dashboard-buttons {
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically */
+    gap: 15px; /* Space between buttons */
+}
+
+.dashboard-btn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dashboard-btn:hover {
+    background-color: #039c5b;
+}
+
+.manage-volunteers {
+    background-color: #222;
+}
+
+.manage-opportunities {
+    background-color: #222;
+}
+
+.manage-volunteers:hover {
+    background-color: #555555;
+}
+
+.manage-opportunities:hover {
+    background-color: #555555;
+}
+
