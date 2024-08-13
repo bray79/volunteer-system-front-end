@@ -1,0 +1,46 @@
+<!-- Main Container -->
+<div class="container mt-3">
+    <!-- Top Row: Opportunities and Add Button -->
+    <div class="row mb-3">
+        <div class="col">
+            <a class="navbar-brand">Opportunities</a>
+        </div>
+        <div class="col text-end">
+            <button class="btn btn-primary" routerLink="/manageOpportunities/create">+ Add Opportunity</button>
+        </div>
+    </div>
+    
+    <!-- Table -->
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Info1</th>
+                <th scope="col">Info2</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of allOpportunities">
+                <th scope="row">{{ item.id }}</th>
+                <td>{{ item.opportunityName }}</td>
+                <td>{{ item.info1 }}</td>
+                <td>{{ item.info2 }}</td>
+                <td><a href="" class="btn btn-primary" [routerLink]="['/manageOpportunities/edit', item.id]">Edit</a>
+                    <button type="button" (click)="deleteOpportunity(item.id)" class="btn btn-danger custom-margin-left">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+
+
+
+
+
