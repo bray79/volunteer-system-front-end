@@ -13,9 +13,11 @@ export class EditComponent implements OnInit {
   formdata: ManageOpportunities = {
     id: 0,
     opportunityName: '',
-    info1: '',
-    info2: ''
+    centerName: '',
+    date: ''  
   };
+
+  originalDate: string = ''; 
 
   constructor(
     private manageOpportunitiesService: ManageOpportunitiesService,
@@ -27,17 +29,18 @@ export class EditComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
-        this.getById(id);
+        this.getById(parseInt(id, 10));
       } else {
         console.error('Invalid ID');
       }
     });
   }
 
-  getById(id: string) {
-    this.manageOpportunitiesService.edit(Number(id)).subscribe(data => {
+  getById(id: number) {
+    this.manageOpportunitiesService.getOpportunityById(id).subscribe(data => {
       if (data.length > 0) {
         this.formdata = data[0];
+        this.originalDate = this.formdata.date; 
       } else {
         console.error('Opportunity not found');
       }
@@ -45,16 +48,26 @@ export class EditComponent implements OnInit {
   }
 
   updateOpportunity() {
-    this.manageOpportunitiesService.updateOpportunity(this.formdata).subscribe({
+
+    if (!this.formdata.opportunityName || !this.formdata.centerName) {
+      alert('Please fill in all fields.');
+      return;
+    }
+
+    const updatedOpportunity: ManageOpportunities = {
+      ...this.formdata,
+      date: this.originalDate 
+    };
+
+    this.manageOpportunitiesService.updateOpportunity(updatedOpportunity).subscribe({
       next: () => {
         this.router.navigate(["/manageOpportunities/home"]);
       },
       error: err => {
-        console.log(err);
+        console.error('Error updating opportunity:', err);
+        alert('An error occurred while updating the opportunity. Please try again.');
       }
     });
+
   }
 }
-
-
-

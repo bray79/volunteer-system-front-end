@@ -25,7 +25,13 @@ export class ManageOpportunitiesService {
     return this.httpClient.get<ManageOpportunities[]>(this.apiUrl, { params });
   }
 
-  // Update opportunity by ID (handle ID as string)
+  // Get the opportunity by ID using the query parameter
+  getOpportunityById(id: number): Observable<ManageOpportunities[]> {
+    const params = { id: id.toString() };
+    return this.httpClient.get<ManageOpportunities[]>(this.apiUrl, { params });
+  }
+
+  // Update the opportunity by sending a PUT request directly to /opportunities/{id}
   updateOpportunity(opportunity: ManageOpportunities): Observable<ManageOpportunities> {
     return this.httpClient.put<ManageOpportunities>(`${this.apiUrl}/${opportunity.id}`, opportunity);
   }

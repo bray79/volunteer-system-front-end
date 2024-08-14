@@ -2,16 +2,12 @@
     <legend>Edit Opportunity</legend>
     <form>
         <div class="mb-3">
-            <label for="txtName" class="form-label">Name</label>
-            <input type="text" name="name" [(ngModel)]="formdata.opportunityName" class="form-control" id="txtName" />
+            <label for="txtName" class="form-label">Opportunity Name</label>
+            <input type="text" name="name" [(ngModel)]="formdata.opportunityName" class="form-control" id="txtName" required />
         </div>
         <div class="mb-3">
-            <label for="txtInfo1" class="form-label custom-margin-top">Info1</label>
-            <input type="text" name="info1" [(ngModel)]="formdata.info1" class="form-control" id="txtInfo1" />
-        </div>
-        <div class="mb-3">
-            <label for="txtInfo2" class="form-label custom-margin-top">Info2</label>
-            <input type="text" name="info2" [(ngModel)]="formdata.info2" class="form-control" id="txtInfo2" />
+            <label for="txtCenterName" class="form-label custom-margin-top">Center Name</label>
+            <input type="text" name="centerName" [(ngModel)]="formdata.centerName" class="form-control" id="txtCenterName" required />
         </div>
         <button type="button" (click)="updateOpportunity()" class="btn btn-primary custom-margin-top">Update</button>
     </form>

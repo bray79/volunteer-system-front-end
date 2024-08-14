@@ -1,46 +1,62 @@
 <!-- Main Container -->
 <div class="container mt-3">
-    <!-- Top Row: Opportunities and Add Button -->
-    <div class="row mb-3">
-        <div class="col">
+    <!-- Top Row: Opportunities, Search Bar, Filter, and Add Button -->
+    <div class="row mb-3 align-items-center">
+        <div class="col-md-3">
             <a class="navbar-brand">Opportunities</a>
         </div>
-        <div class="col text-end">
-            <button class="btn btn-primary" routerLink="/manageOpportunities/create">+ Add Opportunity</button>
+        <div class="col-md-5">
+            <input type="text" class="form-control" placeholder="Search Opportunities..." (input)="onSearch($event)">
+        </div>
+        <div class="col-md-2">
+            <!-- Custom Dropdown -->
+            <div class="dropdown">
+                <button class="btn btn-secondary w-100" (click)="toggleDropdown()">
+                    Filter 
+                    <i class="bi bi-chevron-down"></i> <!-- Bootstrap Icons dropdown icon -->
+                </button>
+                <ul class="dropdown-menu" *ngIf="dropdownVisible">
+                    <li><a class="dropdown-item" (click)="filterByRecent()">Most Recent (60 days)</a></li>
+                    <li><a class="dropdown-item" (click)="filterByCenter()">By Center</a></li>
+                    <li><a class="dropdown-item" (click)="showAll()">Show All</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2 text-end">
+            <button class="btn btn-primary w-100" routerLink="/manageOpportunities/create">+ Add Opportunity</button>
         </div>
     </div>
     
     <!-- Table -->
-    <table class="table">
+    <table class="table" *ngIf="filteredOpportunities.length > 0">
         <thead>
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
-                <th scope="col">Info1</th>
-                <th scope="col">Info2</th>
+                <th scope="col">Center Name</th>
+                <th scope="col">Date</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of allOpportunities">
+            <tr *ngFor="let item of filteredOpportunities">
                 <th scope="row">{{ item.id }}</th>
                 <td>{{ item.opportunityName }}</td>
-                <td>{{ item.info1 }}</td>
-                <td>{{ item.info2 }}</td>
-                <td><a href="" class="btn btn-primary" [routerLink]="['/manageOpportunities/edit', item.id]">Edit</a>
+                <td>{{ item.centerName }}</td>
+                <td>{{ item.date }}</td>
+                <td>
+                    <button type="button" class="btn btn-success custom-margin-right" [routerLink]="['/manageOpportunities/volunteers', item.id]">View Volunteer Opportunity Matches</button>
+                    <a href="" class="btn btn-primary" [routerLink]="['/manageOpportunities/edit', item.id]">Edit</a>
                     <button type="button" (click)="deleteOpportunity(item.id)" class="btn btn-danger custom-margin-left">Delete</button>
                 </td>
             </tr>
         </tbody>
     </table>
+
+    <!-- No Matches Found Message -->
+    <div *ngIf="filteredOpportunities.length === 0" class="text-center mt-3">
+        <p>No opportunities found matching your search criteria.</p>
+    </div>
 </div>
-
-
-
-
-
-
-
-
 
 
