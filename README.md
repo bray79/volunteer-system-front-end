@@ -2,6 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
 
+# Getting started
+Run ```npm start``` to run *json-server* and the web app
+
 ## JSON server
 
 Run 'json-server --watch db.json' to run the JSON server. Navigate to 'http://localhost:3000/opportunities' to view the stored objects.
