@@ -11,13 +11,16 @@ import { ManageOpportunitiesService } from '../manage-opportunities.service';
 export class EditComponent implements OnInit {
 
   formdata: ManageOpportunities = {
-    id: 0,
+    id: '',
     opportunityName: '',
     centerName: '',
-    date: ''  
+    description: '',
+    date: '',
+    startTime: '',
+    endTime: '',
+    location: '',
+    status: ''  
   };
-
-  originalDate: string = ''; 
 
   constructor(
     private manageOpportunitiesService: ManageOpportunitiesService,
@@ -29,18 +32,17 @@ export class EditComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       const id = params.get('id');
       if (id) {
-        this.getById(parseInt(id, 10));
+        this.getById(id);
       } else {
         console.error('Invalid ID');
       }
     });
-  }
+}
 
-  getById(id: number) {
+  getById(id: string) {
     this.manageOpportunitiesService.getOpportunityById(id).subscribe(data => {
       if (data.length > 0) {
         this.formdata = data[0];
-        this.originalDate = this.formdata.date; 
       } else {
         console.error('Opportunity not found');
       }
@@ -49,14 +51,21 @@ export class EditComponent implements OnInit {
 
   updateOpportunity() {
 
-    if (!this.formdata.opportunityName || !this.formdata.centerName) {
-      alert('Please fill in all fields.');
+    // Fields to validate
+    const requiredFields: (keyof ManageOpportunities)[] = ['opportunityName', 'centerName', 'description', 'date', 
+                                                          'startTime', 'endTime', 'location', 'status'];
+
+    // Check if any of the required fields are empty
+    const hasEmptyField = requiredFields.some(field => !this.formdata[field]);
+
+    //Alert User if empty
+    if (hasEmptyField) {
+      alert('Please fill in all required fields.');
       return;
     }
 
     const updatedOpportunity: ManageOpportunities = {
-      ...this.formdata,
-      date: this.originalDate 
+      ...this.formdata, 
     };
 
     this.manageOpportunitiesService.updateOpportunity(updatedOpportunity).subscribe({

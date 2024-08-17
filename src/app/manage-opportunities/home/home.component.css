@@ -6,6 +6,10 @@
     margin-right: 10px;
 }
 
+.custom-margin-top {
+    margin-top: 10px;
+}
+
 .dropdown-menu {
     display: block; /* Ensure the dropdown menu is displayed when visible */
     position: absolute;

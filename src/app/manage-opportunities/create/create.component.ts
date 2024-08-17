@@ -3,14 +3,6 @@ import { Router } from '@angular/router';
 import { ManageOpportunitiesService } from '../manage-opportunities.service';
 import { ManageOpportunities } from '../manage-opportunities';
 
-// Helper function to get the local date in YYYY-MM-DD format
-function getLocalDate(): string {
-  const localDate = new Date();
-  const offset = localDate.getTimezoneOffset(); // Get the local timezone offset in minutes
-  localDate.setMinutes(localDate.getMinutes() - offset); // Adjust the date by the offset
-  return localDate.toISOString().split('T')[0]; // Convert to YYYY-MM-DD format
-}
-
 @Component({
   selector: 'app-create',
   templateUrl: './create.component.html',
@@ -22,7 +14,12 @@ export class CreateComponent {
     id: this.generateUniqueId(),
     opportunityName: '',
     centerName: '',
-    date: getLocalDate()
+    description: '',
+    date: '',
+    startTime: '',
+    endTime: '',
+    location: '',
+    status: ''  
   };
 
   constructor(
@@ -30,13 +27,21 @@ export class CreateComponent {
     private router: Router
   ) {}
 
-  generateUniqueId(): number {
-    return Date.now(); // Use current timestamp as unique ID
+  generateUniqueId(): string {
+    return String(Date.now()); // Use current timestamp as unique ID
   }
 
   createOpportunity() {
-    // Basic validation to ensure all required fields are filled
-    if (!this.formdata.opportunityName || !this.formdata.centerName) {
+
+    // Fields to validate
+    const requiredFields: (keyof ManageOpportunities)[] = ['opportunityName', 'centerName', 'description', 'date', 
+                                                          'startTime', 'endTime', 'location', 'status'];
+
+    // Check if any of the required fields are empty
+    const hasEmptyField = requiredFields.some(field => !this.formdata[field]);
+
+    //Alert User if empty
+    if (hasEmptyField) {
       alert('Please fill in all required fields.');
       return;
     }
