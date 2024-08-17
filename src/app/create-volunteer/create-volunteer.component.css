@@ -1,0 +1,16 @@
+.form-label {
+    margin-top: 10px;
+}
+
+.custom-margin-top {
+    margin-top: 12px;
+    margin-right: 5px;
+}
+
+.ssn,.drivers-license {
+    margin-right: 10px;
+}
+
+.approval {
+    margin-right: 10px;
+}

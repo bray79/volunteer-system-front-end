@@ -1,0 +1,74 @@
+<app-layout></app-layout>
+<div class="container">
+    <legend>Create Volunteer</legend>
+    <form>
+        <div class="mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" name="firstname" [(ngModel)]="formdata.first_name" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" name="lastname" [(ngModel)]="formdata.last_name" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" name="username" [(ngModel)]="formdata.user_name" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" name="password" [(ngModel)]="formdata.password" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="centers" class="form-label">Preferred Centers</label>
+            <input type="text" name="centers" [(ngModel)]="formdata.preferred_centers" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="skills_interests" class="form-label">Skills or Interests</label>
+            <input type="text" name="skills_interests" [(ngModel)]="formdata.skills_interests" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="text" name="email" [(ngModel)]="formdata.email" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="education" class="form-label">Educational Background</label>
+            <input type="text" name="education" [(ngModel)]="formdata.educational_background" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="licenses" class="form-label">Current Licenses</label>
+            <input type="text" name="licenses" [(ngModel)]="formdata.current_licenses" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="emergency_contact" class="form-label">Emergency Contact</label>
+            <input type="text" name="emergency_contact" [(ngModel)]="formdata.emergency_contact" class="form-control" />
+        </div>
+        <!-- <div class="mb-3">
+            <label for="txtName" class="form-label">Emergency Contact Name</label>
+            <input type="text" name="name" [(ngModel)]="formdata.emergency_contact" class="form-control"/>
+        </div> -->
+        <div class="mb-3">
+                <input type="checkbox" name="drivers_license_on_file" [(ngModel)]="formdata.drivers_license_on_file" class="drivers-license"/>
+                <label for="drivers_license_on_file" class="form-label">Driver's License On File?</label>
+        </div>
+        <div class="mb-3">
+            <input type="checkbox" name="ssn_on_file" [(ngModel)]="formdata.social_security_on_file" class="ssn"/>
+            <label for="ssn_on_file">Social Security On File?</label>
+        </div>
+        <div class="mb-3">
+            <label for="approval_status" class="approval">
+                Approval Status:
+            </label>
+            <select name="approval_status" id="approval_status" [(ngModel)]="formdata.approval_status">
+                <!-- cross check if its input showing on the server -->
+                <option>Approved/Pending Approval</option> 
+                <option>Approved</option>
+                <option>Pending Approval</option>
+                <option>Disapproved</option>
+                <option>Inactive</option>
+            </select>
+        </div>
+        <button type="button" (click)="createVolunteer()" class="btn btn-primary custom-margin-top">Create</button>
+        <button type="button" [routerLink]="['/manageVolunteer']" class="btn btn-primary custom-margin-top">Go Back</button>
+    </form>
+</div>
+
