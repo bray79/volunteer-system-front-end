@@ -1,6 +1,6 @@
 <app-layout></app-layout>
 <div class="container">
-    <legend>Create Volunteer</legend>
+    <legend>Edit Volunteer</legend>
     <form>
         <div class="mb-3">
             <label for="firstname" class="form-label">First Name</label>
@@ -109,7 +109,7 @@
                 <option>Inactive</option>
             </select>
         </div>
-        <button type="button" (click)="createVolunteer()" class="btn btn-primary custom-margin-top">Create</button>
+        <button type="button" (click)="editVolunteer()" class="btn btn-primary custom-margin-top">Edit</button>
         <button type="button" [routerLink]="['/manageVolunteer']" class="btn btn-primary custom-margin-top">Go Back</button>
     </form>
 </div>

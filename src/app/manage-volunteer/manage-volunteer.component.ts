@@ -27,9 +27,9 @@ export class ManageVolunteerComponent implements OnInit {
     this.dropdownVisible = !this.dropdownVisible; // Toggle dropdown visibility
   }
 
-  deleteVolunteer(id: number) {
+  deleteVolunteer(id: string) {
     const confirmed = window.confirm('Are you sure you want to delete this opportunity?');
-
+  
     if (confirmed) {
       this.volSvc.deleteVolunteers(id).subscribe({
         next: () => {

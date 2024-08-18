@@ -40,16 +40,16 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let vol of filteredVolunteers; index as i">
-            <th scope="row">{{ i+1 }}</th>
+        <tr *ngFor="let vol of filteredVolunteers">
+            <th scope="row">{{ vol.id }}</th>
             <td>{{ vol.first_name }}</td>
             <td>{{ vol.preferred_centers }}</td>
             <td>{{ vol.approval_status }}</td>
             <td>
                 <!-- FIX LATER -->
                 <!-- <button type="button" class="btn btn-success custom-margin-right" [routerLink]="['/manageOpportunities/volunteers', vol.id]">View Compatible Opportunities</button> -->
-                <a href="" class="btn btn-primary" [routerLink]="['/manageVolunteer/edit', vol.id]">Edit</a>
-                <button type="button" (click)="deleteVolunteer(i)" class="btn btn-danger custom-margin-left">Delete</button>
+                <a href="" class="btn btn-primary" [routerLink]="['/editVolunteer', vol.id]">Edit</a>
+                <button type="button" (click)="deleteVolunteer(vol.id)" class="btn btn-danger custom-margin-left">Delete</button>
             </td>
         </tr>
     </tbody>
@@ -60,9 +60,6 @@
 </div>
 
 <!-- TO DO:
-    2. complete add volunteer (specifically emerg contact info, availability, address, phone number)
     3. edit volunteer 
-    4. delete voulunteer (first figure how to increment and get id)
     5. filter
-    6. Last priority: opportunities match
-    7. create guards to prevent unauthorized access -->
+    6. Last priority: opportunities match !-->
