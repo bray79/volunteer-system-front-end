@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
   allOpportunities: ManageOpportunities[] = [];
   filteredOpportunities: ManageOpportunities[] = [];
   availableCenters: string[] = [];
+  selectedOpportunityId: string | null = null;
   dropdownVisible = false; 
   centerDropdownVisible: boolean = false; 
 
@@ -89,4 +90,9 @@ export class HomeComponent implements OnInit {
   toggleCenterDropdown(): void {
     this.centerDropdownVisible = !this.centerDropdownVisible;
   }
+
+  viewMatchedVolunteers(opportunityId: string): void {
+    this.selectedOpportunityId = this.selectedOpportunityId === opportunityId ? null : opportunityId;
+  }
+
 }

@@ -1,0 +1,16 @@
+<div *ngIf="volunteers && volunteers.length > 0; else noVolunteers">
+    <h3 class="h4">{{ opportunityName }} Matched Volunteers</h3>
+    <ul>
+      <li *ngFor="let volunteer of volunteers">
+        {{ volunteer.first_name }} {{ volunteer.last_name }} - {{ volunteer.email }}
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noVolunteers>
+    <p>No volunteers have been matched with this opportunity yet.</p>
+  </ng-template>
+  
+
+
+

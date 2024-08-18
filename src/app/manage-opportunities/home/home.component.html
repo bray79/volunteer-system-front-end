@@ -1,24 +1,25 @@
-<!-- Main Container -->
+<div class="background-image"></div>
 <div class="container mt-3">
+    <!-- Manage Opportunities Heading -->
+    <h2 class="text-center custom-heading">Manage Opportunities</h2>
+    <hr class="black-divider">
+    
     <!-- Top Row: Opportunities, Search Bar, Filter, and Add Button -->
-    <div class="row mb-3 align-items-center">
+    <div class="row mb-3 align-items-center opaque-bg top-bar">
         <div class="col-md-3">
             <a class="navbar-brand">Opportunities</a>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control" placeholder="Search Opportunities..." (input)="onSearch($event)">
+            <input type="text" class="form-control custom-margin-top custom-border" placeholder="Search Opportunities..." (input)="onSearch($event)">
         </div>
         <div class="col-md-2">
-            <!-- Custom Dropdown -->
             <div class="dropdown">
-                <button class="btn btn-secondary w-100" (click)="toggleDropdown()">
+                <button class="btn btn-secondary w-100 custom-margin-top custom-border" (click)="toggleDropdown()">
                     Filter 
                     <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu" *ngIf="dropdownVisible">
-                    <li>
-                        <a class="dropdown-item" (click)="filterByRecent()">Most Recent (60 days)</a>
-                    </li>
+                    <li><a class="dropdown-item" (click)="filterByRecent()">Most Recent (60 days)</a></li>
                     <li>
                         <a class="dropdown-item" (click)="toggleCenterDropdown()">By Center</a>
                         <ul class="dropdown-menu" *ngIf="centerDropdownVisible">
@@ -27,19 +28,17 @@
                             </li>
                         </ul>
                     </li>
-                    <li>
-                        <a class="dropdown-item" (click)="showAll()">Show All</a>
-                    </li>
+                    <li><a class="dropdown-item" (click)="showAll()">Show All</a></li>
                 </ul>
             </div>
         </div>
         <div class="col-md-2 text-end">
-            <button class="btn btn-primary w-100" routerLink="/manageOpportunities/create">+ Add Opportunity</button>
+            <button class="btn btn-primary w-100 custom-margin-top" routerLink="/manageOpportunities/create">+ Add Opportunity</button>
         </div>
     </div>
     
     <!-- Table -->
-    <table class="table" *ngIf="filteredOpportunities.length > 0">
+    <table class="table opaque-bg" *ngIf="filteredOpportunities.length > 0">
         <thead>
             <tr>
                 <th scope="col">ID</th>
@@ -55,7 +54,8 @@
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let item of filteredOpportunities">
+            <ng-container *ngFor="let item of filteredOpportunities">
+              <tr>
                 <th scope="row">{{ item.id }}</th>
                 <td>{{ item.opportunityName }}</td>
                 <td>{{ item.centerName }}</td>
@@ -66,18 +66,21 @@
                 <td>{{ item.location }}</td>
                 <td>{{ item.status }}</td>
                 <td>
-                    <button type="button" class="btn btn-success custom-margin-right custom-margin-top" [routerLink]="['/manageOpportunities/volunteers', item.id]">View Volunteer Opportunity Matches</button>
-                    <a href="" class="btn btn-primary custom-margin-top" [routerLink]="['/manageOpportunities/edit', item.id]">Edit</a>
-                    <button type="button" (click)="deleteOpportunity(item.id)" class="btn btn-danger custom-margin-left custom-margin-top">Delete</button>
+                  <button type="button" (click)="viewMatchedVolunteers(item.id)" class="btn btn-success custom-margin-right custom-margin-top">View Volunteer Matches</button>
+                  <a class="btn btn-primary custom-margin-top custom-margin-right" [routerLink]="['/manageOpportunities/edit', item.id]">Edit</a>
+                  <button type="button" (click)="deleteOpportunity(item.id)" class="btn btn-danger custom-margin-top">Delete</button>
                 </td>
-            </tr>
+              </tr>
+              <tr *ngIf="selectedOpportunityId === item.id">
+                <td colspan="10">
+                  <app-volunteer-list [opportunityId]="item.id" [opportunityName]="item.opportunityName"></app-volunteer-list>
+                </td>
+              </tr>
+            </ng-container>
         </tbody>
     </table>
 
-    <!-- No Matches Found Message -->
     <div *ngIf="filteredOpportunities.length === 0" class="text-center mt-3">
         <p>No opportunities found matching your search criteria.</p>
     </div>
 </div>
-
-
