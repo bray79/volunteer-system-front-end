@@ -1,0 +1,170 @@
+/*
+.container {
+    color: white;
+    position: relative; 
+    z-index: 1;
+    margin: auto;
+    width: 350px;
+    outline: dashed 1px white;
+}
+*/
+/* Apply box-sizing to all elements for consistent sizing */
+* {
+    box-sizing: border-box;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+.card {
+    background-color: rgb(206, 243, 255, 0.90);
+    text-align: center;
+    word-wrap: break-word;
+    padding: 20px;
+    border-radius: 10px;
+}
+.c-small {
+    width: 350px;
+    height: 350px;
+}
+.c-wide {
+    width: 500px;
+    height: 500px;
+}
+
+
+/* .card1 { grid-area: card1; }
+.card2 { grid-area: card2; }
+.card3 { grid-area: card3; }
+.card4 { grid-area: card4; }
+.card5 { grid-area: card5; }
+.card-container {
+    display: grid;
+    column-gap: 20px;
+    row-gap: 20px;
+    grid-template-areas: 
+    'card1 card2 card3'
+    'card4 card5';
+} */
+/* .card-container > div {
+    margin: auto;
+    outline: dashed 1px white;
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 30px;
+} */
+
+/* Background Image with Blur Effect */
+.background-image {
+    background: url('/images/grass-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(5px);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Ensure it stays behind the container */
+    min-height: 100vh; 
+}
+
+/* Container for top bar and table */
+.container {
+    position: relative; 
+    z-index: 1;
+    max-width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+
+/* Opaque Backgrounds */
+.opaque-bg {
+    background-color: rgba(255, 255, 255, 0.85); /* Adjust the opacity here */
+}
+
+/* Top Bar Styling */
+.top-bar {
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+.table {
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Manage Opportunities Heading */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Black Divider */
+.black-divider {
+    border-top: 2px solid black;
+    margin-bottom: 40px;
+}
+
+.custom-margin-right {
+    margin-right: 5px;
+}
+
+.custom-margin-top {
+    margin-top: 5px;
+}
+
+.custom-margin-left {
+    margin-left: 10px;
+}
+
+.custom-margin-right {
+    margin-right: 10px;
+}
+
+.custom-margin-top {
+    margin-top: 10px;
+}
+
+.custom-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
+
+.custom-border {
+    border: 1px solid black;
+}
+
+.dropdown-menu {
+    display: block; /* Ensure the dropdown menu is displayed when visible */
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Adjust width as needed */
+}
+
+.dropdown-menu li {
+    list-style-type: none;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}

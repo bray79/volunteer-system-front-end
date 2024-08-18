@@ -5,12 +5,17 @@ import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageVolunteerComponent } from './manage-volunteer/manage-volunteer.component';
 import { HomeComponent } from './manage-opportunities/home/home.component';
+import { DashComponent } from './dash/dash.component';
 
 const routes: Routes = [
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
+  },
+  {
+    path: 'dash',
+    component: DashComponent
   },
   { 
     path: 'login', 
