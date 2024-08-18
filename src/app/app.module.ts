@@ -31,3 +31,4 @@ import { ManageOpportunitiesModule } from './manage-opportunities/manage-opportu
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
