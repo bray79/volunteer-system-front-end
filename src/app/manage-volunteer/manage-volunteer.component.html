@@ -1,6 +1,11 @@
 <app-layout></app-layout>
+<div class="background-image"></div>
 <div class="container mt-3">
-    <div class="row mb-3 align-items-center">
+
+    <h2 class="text-center custom-heading">Manage Volunteers</h2>
+    <hr class="black-divider">
+
+    <div class="row mb-3 align-items-center opaque-bg top-bar">
         <div class="col-md-3">
             <a class="navbar-brand">Volunteers</a>
         </div>
@@ -27,7 +32,7 @@
             <button class="btn btn-primary w-100" routerLink="/createVolunteer">+ Add Volunteer</button>
         </div>
     </div>
-<table class="table" *ngIf="filteredVolunteers.length > 0">
+<table class="table opaque-bg" *ngIf="filteredVolunteers.length > 0">
     <thead>
         <tr>
             <th scope="col">ID</th>
@@ -55,6 +60,7 @@
 
 <div *ngIf="filteredVolunteers.length === 0" class="text-center mt-3">
     <p>No volunteers found matching your search criteria.</p>
+</div>
 </div>
 
 <!-- TO DO:
