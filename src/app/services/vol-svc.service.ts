@@ -8,7 +8,6 @@ import { Observable } from 'rxjs';
 })
 export class VolSvcService {
 
-  //private apiUrl = 'http://localhost:3000/opportunities';
   constructor(private httpClient: HttpClient) { }
   
   getVolunteers() {
@@ -30,8 +29,6 @@ export class VolSvcService {
     const params = new HttpParams().set('id', id.toString());
     return this.httpClient.get<VolunteerInfo[]>('http://localhost:3000/volunteers', { params });
   }
-
-  // Update the opportunity by sending a PUT request directly to /opportunities/{id}
   updateVolunteer(volunteer: VolunteerInfo): Observable<VolunteerInfo> {
     return this.httpClient.put<VolunteerInfo>(`http://localhost:3000/volunteers/${volunteer.id}`, volunteer);
   }

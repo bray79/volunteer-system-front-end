@@ -1,6 +1,5 @@
 <app-layout></app-layout>
 <div class="container mt-3">
-    <!-- Top Row: Opportunities, Search Bar, Filter, and Add Button -->
     <div class="row mb-3 align-items-center">
         <div class="col-md-3">
             <a class="navbar-brand">Volunteers</a>
@@ -9,18 +8,17 @@
             <input type="text" class="form-control" placeholder="Search Volunteers..." (input)="onSearch($event)">
         </div>
         <div class="col-md-2">
-            <!-- Custom Dropdown -->
             <div class="dropdown">
                 <button class="btn btn-secondary w-100" (click)="toggleDropdown()">
                     Filter 
-                    <i class="bi bi-chevron-down"></i> <!-- Bootstrap Icons dropdown icon -->
+                    <i class="bi bi-chevron-down"></i>
                 </button>
                 <ul class="dropdown-menu" *ngIf="dropdownVisible">
-                    <li><a class="dropdown-item">Pending Approval/Approved</a></li>
-                    <li><a class="dropdown-item">Pending Approval</a></li>
-                    <li><a class="dropdown-item">Approved</a></li>
-                    <li><a class="dropdown-item">Disapproved</a></li>
-                    <li><a class="dropdown-item">Inactive</a></li>
+                    <li><a class="dropdown-item" (click)="filterByApprovedAndPending()">Approved/Pending Approval</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Pending Approval')">Pending Approval</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Approved')">Approved</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Disapproved')">Disapproved</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Inactive')" >Inactive</a></li>
                     <li><a class="dropdown-item" (click)="showAll()">All</a></li>
                 </ul>
             </div>
@@ -46,8 +44,8 @@
             <td>{{ vol.preferred_centers }}</td>
             <td>{{ vol.approval_status }}</td>
             <td>
-                <!-- FIX LATER -->
-                <!-- <button type="button" class="btn btn-success custom-margin-right" [routerLink]="['/manageOpportunities/volunteers', vol.id]">View Compatible Opportunities</button> -->
+                <!-- FIX LATER: [routerLink]="['/manageOpportunities/volunteers', vol.id]" -->
+                <button type="button" class="btn btn-success custom-margin-right">View Compatible Opportunities</button>
                 <a href="" class="btn btn-primary" [routerLink]="['/editVolunteer', vol.id]">Edit</a>
                 <button type="button" (click)="deleteVolunteer(vol.id)" class="btn btn-danger custom-margin-left">Delete</button>
             </td>
@@ -60,6 +58,6 @@
 </div>
 
 <!-- TO DO:
-    3. edit volunteer 
-    5. filter
-    6. Last priority: opportunities match !-->
+    6. Last priority: opportunities match 
+    7. bad input in creating and editing
+    !-->

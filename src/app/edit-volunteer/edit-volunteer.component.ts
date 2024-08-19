@@ -51,35 +51,23 @@ export class EditVolunteerComponent implements OnInit {
       }
     });
   }
+
   editVolunteer() {
+    // Basic validation for required fields
+    const requiredFields = ['first_name', 'last_name', 'user_name', 'password', 'email','preferred_centers'];
+    const hasEmptyField = requiredFields.some(field => !this.formdata[field as keyof VolunteerInfo]);
 
-    // Fields to validate
-    const requiredFields: (keyof VolunteerInfo)[] = ['first_name', 'last_name', 'user_name', 'password', 'address', 'preferred_centers',
-                                                      'availability_times','address','phone_numbers', 'email',
-                                                      'current_licenses', 'approval_status'];
-
-    // Check if any of the required fields are empty
-    const hasEmptyField = requiredFields.some(field => !this.formdata[field]);
-
-    //Alert User if empty
     if (hasEmptyField) {
-      alert('Please fill in all required fields.');
+      alert('Please fill in all required fields: First Name, Last Name, User Name, Password, Email & Preferred Centers');
       return;
     }
 
-    const updatedVolunteer: VolunteerInfo = {
-      ...this.formdata, 
-    };
-
-    this.volSvc.updateVolunteer(updatedVolunteer).subscribe({
-      next: () => {
-        this.router.navigate(["manageVolunteer"]);
-      },
+    this.volSvc.updateVolunteer(this.formdata).subscribe({
+      next: () => this.router.navigate(["/manageVolunteer"]),
       error: err => {
         console.error('Error updating volunteer:', err);
         alert('An error occurred while updating the volunteer. Please try again.');
       }
     });
-
   }
 }
