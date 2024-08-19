@@ -5,6 +5,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageVolunteerComponent } from './manage-volunteer/manage-volunteer.component';
 import { HomeComponent } from './manage-opportunities/home/home.component';
+import { CreateVolunteerComponent } from './create-volunteer/create-volunteer.component';
+import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.component';
 
 const routes: Routes = [
   {
@@ -34,7 +36,20 @@ const routes: Routes = [
         loadChildren: () => import('./manage-opportunities/manage-opportunities.module').then(m => m.ManageOpportunitiesModule)
       }
     ]
+  },
+  {
+  path: 'createVolunteer',
+  component: CreateVolunteerComponent
+  },
+  {
+    path: 'manageVolunteer',
+    component: ManageVolunteerComponent
+  },
+  {
+    path: 'editVolunteer/:id',
+    component: EditVolunteerComponent
   }
+
 ];
 
 @NgModule({

@@ -10,6 +10,8 @@ import { LayoutComponent } from './layout/layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageVolunteerComponent } from './manage-volunteer/manage-volunteer.component';
 import { ManageOpportunitiesModule } from './manage-opportunities/manage-opportunities.module';
+import { CreateVolunteerComponent } from './create-volunteer/create-volunteer.component';
+import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { ManageOpportunitiesModule } from './manage-opportunities/manage-opportu
     LoginComponent,
     LayoutComponent,
     DashboardComponent,
-    ManageVolunteerComponent
+    ManageVolunteerComponent,
+    CreateVolunteerComponent,
+    EditVolunteerComponent,
   ],
   imports: [
     BrowserModule,

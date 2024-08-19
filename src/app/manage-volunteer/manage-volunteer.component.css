@@ -1,0 +1,30 @@
+.dropdown-menu {
+    display: block;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 135%;
+}
+
+.dropdown-menu li {
+    list-style-type: none;
+}
+
+.dropdown-item {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+.custom-margin-left {
+    margin-left: 10px;
+}
+
+.custom-margin-right {
+    margin-right: 10px;
+}

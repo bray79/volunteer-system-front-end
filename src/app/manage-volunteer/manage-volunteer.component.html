@@ -1,16 +1,63 @@
 <app-layout></app-layout>
-<p>manage-volunteer works yayy!</p>
+<div class="container mt-3">
+    <div class="row mb-3 align-items-center">
+        <div class="col-md-3">
+            <a class="navbar-brand">Volunteers</a>
+        </div>
+        <div class="col-md-5">
+            <input type="text" class="form-control" placeholder="Search Volunteers..." (input)="onSearch($event)">
+        </div>
+        <div class="col-md-2">
+            <div class="dropdown">
+                <button class="btn btn-secondary w-100" (click)="toggleDropdown()">
+                    Filter 
+                    <i class="bi bi-chevron-down"></i>
+                </button>
+                <ul class="dropdown-menu" *ngIf="dropdownVisible">
+                    <li><a class="dropdown-item" (click)="filterByApprovedAndPending()">Approved/Pending Approval</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Pending Approval')">Pending Approval</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Approved')">Approved</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Disapproved')">Disapproved</a></li>
+                    <li><a class="dropdown-item" (click)="filterByStatus('Inactive')" >Inactive</a></li>
+                    <li><a class="dropdown-item" (click)="showAll()">All</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-2 text-end">
+            <button class="btn btn-primary w-100" routerLink="/createVolunteer">+ Add Volunteer</button>
+        </div>
+    </div>
+<table class="table" *ngIf="filteredVolunteers.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Preferred Centers</th>
+            <th scope="col">Approval Status</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let vol of filteredVolunteers">
+            <th scope="row">{{ vol.id }}</th>
+            <td>{{ vol.first_name }}</td>
+            <td>{{ vol.preferred_centers }}</td>
+            <td>{{ vol.approval_status }}</td>
+            <td>
+                <!-- FIX LATER: [routerLink]="['/manageOpportunities/volunteers', vol.id]" -->
+                <button type="button" class="btn btn-success custom-margin-right">View Compatible Opportunities</button>
+                <a href="" class="btn btn-primary" [routerLink]="['/editVolunteer', vol.id]">Edit</a>
+                <button type="button" (click)="deleteVolunteer(vol.id)" class="btn btn-danger custom-margin-left">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div *ngIf="filteredVolunteers.length === 0" class="text-center mt-3">
+    <p>No volunteers found matching your search criteria.</p>
+</div>
 
 <!-- TO DO:
-    1. show list of volunteers' names 
-    2. add volunteer
-    3. edit volunteer
-    4. 
-    2. add icons to show filters for volunteers (using MatDialog and CheckBox maybe)
-    3. Have to somehow find a way to tag volunteers and understand what each action does
-    4. use mock endpoints (think Andreas & Micah are doing this) to handle the functionalities of each action-->
-
-    <!--EXTRA:
-        1. create services folder to handle actions
-        2. create guards to prevent unauthorized access
-        3. separate the classes created in component's files to models folder-->
+    6. Last priority: opportunities match 
+    7. bad input in creating and editing
+    !-->
