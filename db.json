@@ -3,7 +3,7 @@
     {
       "id": "1",
       "opportunityName": "Community Cleanup",
-      "centerName": "Center 1",
+      "centerName": "a",
       "description": "Help clean up the local park.",
       "date": "2024-08-15",
       "start_time": "12:00",
@@ -60,7 +60,7 @@
       "last_name": "Ink",
       "user_name": "andreas_ink",
       "password": "password_hash",
-      "preferred_centers": "Center A,Center B",
+      "preferred_centers": ["a","b","c"],
       "skills_interests": "Teaching,Event Planning",
       "availability_times": [
         {
