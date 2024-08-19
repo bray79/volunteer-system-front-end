@@ -26,7 +26,7 @@ export class ManageOpportunitiesService {
   }
 
   // Get the opportunity by ID using the query parameter
-  getOpportunityById(id: number): Observable<ManageOpportunities[]> {
+  getOpportunityById(id: string): Observable<ManageOpportunities[]> {
     const params = { id: id.toString() };
     return this.httpClient.get<ManageOpportunities[]>(this.apiUrl, { params });
   }
@@ -37,8 +37,11 @@ export class ManageOpportunitiesService {
   }
 
   // Delete opportunity by ID
-  delete(id: number): Observable<void> {
+  delete(id: string): Observable<void> {
+    
+    // Make the DELETE request using the ID as a query parameter
     return this.httpClient.delete<void>(`${this.apiUrl}/${id}`);
   }
+
 }
 

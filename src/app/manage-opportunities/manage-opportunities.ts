@@ -1,6 +1,11 @@
 export interface ManageOpportunities {
-    id: number,
+    id: string,
     opportunityName: string,
     centerName: string,
-    date: string
+    description: string,
+    date: string,
+    startTime: string,
+    endTime: string,
+    location: string,
+    status: string
 }

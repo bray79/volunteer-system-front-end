@@ -7,12 +7,14 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
 
 import { FormsModule } from '@angular/forms';
+import { VolunteerListComponent } from './matched-volunteers/volunteer-list/volunteer-list.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    VolunteerListComponent
   ],
   imports: [
     CommonModule,

@@ -3,11 +3,35 @@
     <form>
         <div class="mb-3">
             <label for="txtName" class="form-label">Opportunity Name</label>
-            <input type="text" name="name" [(ngModel)]="formdata.opportunityName" class="form-control" id="txtName" required />
+            <input type="text" name="name" [(ngModel)]="formdata.opportunityName" class="form-control" id="txtName" required/>
         </div>
         <div class="mb-3">
             <label for="txtCenterName" class="form-label custom-margin-top">Center Name</label>
-            <input type="text" name="centerName" [(ngModel)]="formdata.centerName" class="form-control" id="txtCenterName" required />
+            <input type="text" name="centerName" [(ngModel)]="formdata.centerName" class="form-control" id="txtCenterName" required/>
+        </div>
+        <div class="mb-3">
+            <label for="txtDescription" class="form-label">Description</label>
+            <input type="text" name="description" [(ngModel)]="formdata.description" class="form-control" id="txtDescription" required/>
+        </div>
+        <div class="mb-3">
+            <label for="txtDate" class="form-label custom-margin-top">Event Date</label>
+            <input type="date" name="date" [(ngModel)]="formdata.date" class="form-control" id="txtDate" required/>
+        </div>
+        <div class="mb-3">
+            <label for="txtStartTime" class="form-label">Event Start Time</label>
+            <input type="time" name="startTime" [(ngModel)]="formdata.startTime" class="form-control" id="txtStartTime" required/>
+        </div>
+        <div class="mb-3">
+            <label for="txtEndTime" class="form-label custom-margin-top">Event End Time</label>
+            <input type="time" name="endTime" [(ngModel)]="formdata.endTime" class="form-control" id="txtEndTime" required/>
+        </div>
+        <div class="mb-3">
+            <label for="txtLocation" class="form-label">Event Location</label>
+            <input type="text" name="location" [(ngModel)]="formdata.location" class="form-control" id="txtLocation" required/>
+        </div>
+        <div class="mb-3">
+            <label for="txtStatus" class="form-label custom-margin-top">Event Status</label>
+            <input type="text" name="status" [(ngModel)]="formdata.status" class="form-control" id="txtStatus" required/>
         </div>
         <button type="button" (click)="updateOpportunity()" class="btn btn-primary custom-margin-top">Update</button>
     </form>
