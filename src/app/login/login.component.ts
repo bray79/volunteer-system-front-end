@@ -63,6 +63,7 @@ export class LoginComponent {
         alert("User Found!");
         localStorage.setItem('loggedUser', JSON.stringify(isUserPresent));
         if(this.isAdmin()) {
+          alert("You are an admin! For testing search for const token = and make the long string empty to test non admin flow");
           this.router.navigateByUrl('/dashboard');
         } else {
           alert("You are not an admin!");
