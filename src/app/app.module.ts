@@ -12,6 +12,7 @@ import { ManageVolunteerComponent } from './manage-volunteer/manage-volunteer.co
 import { ManageOpportunitiesModule } from './manage-opportunities/manage-opportunities.module';
 import { CreateVolunteerComponent } from './create-volunteer/create-volunteer.component';
 import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.component';
+import { OpportunityListComponent } from './manage-volunteer/opportunities-list/opportunities-list.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.componen
     ManageVolunteerComponent,
     CreateVolunteerComponent,
     EditVolunteerComponent,
+    OpportunityListComponent
   ],
   imports: [
     BrowserModule,

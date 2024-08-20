@@ -1,0 +1,16 @@
+<div *ngIf="opportunities && opportunities.length > 0; else noOpportunities">
+    <h3 class="h4"> Matched Opportunities for {{ volunteerName }}</h3>
+    <ul>
+      <li *ngFor="let opportunity of opportunities">
+        {{ opportunity.opportunityName }} {{ opportunity.description }} - {{ opportunity.location }}
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noOpportunities>
+    <p>No opportunities have been matched with this volunteer yet.</p>
+  </ng-template>
+  
+
+
+
