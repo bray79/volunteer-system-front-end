@@ -1,3 +1,57 @@
+* {
+    box-sizing: border-box;
+}
+.background-image {
+    background: url('/images/grass-background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(5px);
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1; /* Ensure it stays behind the container */
+    min-height: 100vh; 
+}
+.container {
+    position: relative; 
+    z-index: 1;
+    max-width: 100%;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.opaque-bg {
+    background-color: rgba(255, 255, 255, 0.85); /* Adjust the opacity here */
+}
+
+/* Top Bar Styling */
+.top-bar {
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+/* Table Styling */
+.table {
+    border: 1px solid black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Manage Volunteers Heading */
+h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Black Divider */
+.black-divider {
+    border-top: 2px solid black;
+    margin-bottom: 40px;
+}
+
 .dropdown-menu {
     display: block;
     position: absolute;
@@ -21,8 +75,20 @@
 .dropdown-item:hover {
     background-color: #f8f9fa;
 }
+.custom-heading {
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 5px black;
+}
 .custom-margin-left {
     margin-left: 10px;
+}
+.custom-border {
+    border: 1px solid black;
+}
+.custom-margin-top {
+    margin-top: 10px;
 }
 
 .custom-margin-right {
