@@ -11,6 +11,8 @@ export class ManageVolunteerComponent implements OnInit {
     allVolunteers: VolunteerInfo [] = []
     filteredVolunteers: VolunteerInfo[] = []
     dropdownVisible = false; 
+    selectedVolunteerID: string | null = null;
+    volunteerName: string | null = null;
   constructor (private volSvc : VolSvcService) {}
 
   ngOnInit(): void {
@@ -39,6 +41,10 @@ export class ManageVolunteerComponent implements OnInit {
       );
     this.dropdownVisible = false;
   } 
+
+  viewMatchedVolunteers(volunteerID: string): void {
+    this.selectedVolunteerID = this.selectedVolunteerID === volunteerID ? null : volunteerID;
+  }
 
   onSearch(event: any): void {
     const query = event.target.value.toLowerCase();

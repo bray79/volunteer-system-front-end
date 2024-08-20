@@ -38,18 +38,24 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let vol of filteredVolunteers">
+        <ng-container *ngFor="let vol of filteredVolunteers">
+        <tr>
             <th scope="row">{{ vol.id }}</th>
             <td>{{ vol.first_name }}</td>
             <td>{{ vol.preferred_centers }}</td>
             <td>{{ vol.approval_status }}</td>
             <td>
                 <!-- FIX LATER: [routerLink]="['/manageOpportunities/volunteers', vol.id]" -->
-                <button type="button" class="btn btn-success custom-margin-right">View Compatible Opportunities</button>
+                <button type="button" (click)="viewMatchedVolunteers(vol.id)" class="btn btn-success custom-margin-right custom-margin-top">View Opportunity Matches</button>
                 <a href="" class="btn btn-primary" [routerLink]="['/editVolunteer', vol.id]">Edit</a>
                 <button type="button" (click)="deleteVolunteer(vol.id)" class="btn btn-danger custom-margin-left">Delete</button>
             </td>
-        </tr>
+            <tr *ngIf="selectedVolunteerID === vol.id">
+                <td colspan="10">
+                  <app-opportunities-list [volunteerId]="vol.id" [volunteerName]="vol.user_name"></app-opportunities-list>
+                </td>
+              </tr>
+        </ng-container>
     </tbody>
 </table>
 
@@ -58,6 +64,5 @@
 </div>
 
 <!-- TO DO:
-    6. Last priority: opportunities match 
     7. bad input in creating and editing
     !-->
