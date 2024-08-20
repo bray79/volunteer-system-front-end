@@ -14,17 +14,17 @@
       "endTime": "15:00"
     },
     {
-      "id": "2",
-      "opportunityName": "LAN Party Hosting",
-      "centerName": "Center 2",
-      "description": "Help host a LAN party for charity. All profits from participation go to charity.",
-      "date": "2024-11-15",
-      "start_time": "20:00",
-      "end_time": "16:00",
-      "location": "Oakleaf",
-      "status": "upcoming",
-      "startTime": "13:10",
-      "endTime": "16:10"
+        "id": "2",
+        "opportunityName": "LAN Party Hosting",
+        "centerName": "Center 2",
+        "description": "Help host a LAN party for charity. All profits from participation go to charity.",
+        "date": "2024-11-15",
+        "start_time": "20:00",
+        "end_time": "16:00",
+        "location": "Oakleaf",
+        "status": "upcoming",
+        "startTime": "13:10",
+        "endTime": "16:10"
     },
     {
       "id": "3",
