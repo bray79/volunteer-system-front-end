@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { VolSvcService } from '../services/vol-svc.service';
 import { Router } from '@angular/router';
-import { UserAvailability } from '../models/user-availability';
-import { UserAddress } from '../models/user-address';
-import { UserPhoneNumber } from '../models/user-phone-number';
-import { EmergencyContact } from '../models/emergency-contact';
 import { VolunteerInfo } from '../models/volunteer-info';
 
 @Component({
