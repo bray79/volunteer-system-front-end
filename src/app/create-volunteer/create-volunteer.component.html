@@ -1,32 +1,70 @@
 <app-layout></app-layout>
 <div class="container">
     <legend>Create Volunteer</legend>
-    <form>
-        <div class="mb-3">
+    <form #volunteerForm="ngForm">
+        <div class="mb-3" [ngClass]="{'has-error': firstname.invalid && firstname.touched}">
             <label for="firstname" class="form-label">First Name</label>
-            <input type="text" name="firstname" [(ngModel)]="formdata.first_name" required class="form-control"/>
+            <input type="text" name="firstname" [(ngModel)]="formdata.first_name" #firstname="ngModel" required minlength="2" class="form-control"/>
+            <div *ngIf="firstname.invalid && firstname.touched" class="text-danger">
+              First name is required and must be at least 2 characters long.
+            </div>
         </div>
         <div class="mb-3">
             <label for="lastname" class="form-label">Last Name</label>
-            <input type="text" name="lastname" [(ngModel)]="formdata.last_name" required class="form-control"/>
+            <input type="text" name="lastname" [(ngModel)]="formdata.last_name" #lastName="ngModel" required minlength="2" class="form-control" />
+            <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="text-danger">
+                <small *ngIf="lastName.errors?.required">Last Name is required.</small>
+                <small *ngIf="lastName.errors?.minlength">Last Name must be at least 2 characters long.</small>
+            </div>
         </div>
-        <div class="mb-3">
+        <!-- <div class="mb-3">
             <label for="username" class="form-label">User Name</label>
             <input type="text" name="username" [(ngModel)]="formdata.user_name" required class="form-control"/>
-        </div>
+        </div> -->
         <div class="mb-3">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" name="username" [(ngModel)]="formdata.user_name" #userName="ngModel" required minlength="4" class="form-control" />
+            <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="text-danger">
+                <small *ngIf="userName.errors?.required">User Name is required.</small>
+                <small *ngIf="userName.errors?.minlength">User Name must be at least 4 characters long.</small>
+            </div>
+        </div>
+        <!-- <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="text" name="password" [(ngModel)]="formdata.password" required class="form-control"/>
+        </div> -->
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" [(ngModel)]="formdata.password" #password="ngModel" required minlength="6" class="form-control" />
+        <div *ngIf="password.invalid && (password.dirty || password.touched)" class="text-danger">
+            <small *ngIf="password.errors?.required">Password is required.</small>
+            <small *ngIf="password.errors?.minlength">Password must be at least 6 characters long.</small>
         </div>
-        <div class="mb-3">
+        <!-- </div> -->
+        <!-- <div class="mb-3">
             <label for="centers" class="form-label">Preferred Centers</label>
             <input type="text" name="centers" [(ngModel)]="formdata.preferred_centers" required class="form-control"/>
-        </div>
+        </div> -->
         <div class="mb-3">
+            <label for="centers" class="form-label">Preferred Centers</label>
+            <input type="text" name="centers" [(ngModel)]="formdata.preferred_centers" required class="form-control" #centers="ngModel"/>
+            <div *ngIf="centers.invalid && centers.touched" class="text-danger">
+                Preferred Centers is required.
+            </div>
+        </div>
+        <!-- <div class="mb-3">
             <label for="skills_interests" class="form-label">Skills or Interests</label>
             <input type="text" name="skills_interests" [(ngModel)]="formdata.skills_interests" class="form-control"/>
+        </div> -->
+        <div class="mb-3">
+            <label for="skills_interests" class="form-label">Skills or Interests</label>
+            <input 
+              type="text" name="skills_interests" [(ngModel)]="formdata.skills_interests" required minlength="5" class="form-control" #skillsInterests="ngModel"/>
+            <div *ngIf="skillsInterests.invalid && (skillsInterests.dirty || skillsInterests.touched)" class="text-danger">
+              <div *ngIf="skillsInterests.errors?.required">Skills or Interests is required.</div>
+              <div *ngIf="skillsInterests.errors?.minlength">Skills or Interests must be at least 3 characters long.</div>
+            </div>
         </div>
-        <div class="mb-3 form-group">
+        <!-- <div class="mb-3 form-group">
             <legend style="font-size: 11.5pt;"><strong>Availability</strong></legend>
             <label for="availability_days">Days:</label>
             <select name="availability_days" required [(ngModel)]="formdata.availability_times[0].day" multiple class="form-control">
@@ -36,18 +74,57 @@
             <input type="time" name="availability_start" [(ngModel)]="formdata.availability_times[0].start_time" class="form-control" />
             <label for="availability_end">End Time: </label>
             <input type="time" name="availability_end" [(ngModel)]="formdata.availability_times[0].end_time" class="form-control" />
+        </div> -->
+        <div class="mb-3 form-group">
+            <legend style="font-size: 11.5pt;"><strong>Availability</strong></legend>
+            <label for="availability_days">Days:</label>
+            <select name="availability_days" required [(ngModel)]="formdata.availability_times[0].day" class="form-control" #availabilityDay="ngModel">
+              <option *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']">{{ day }}</option>
+            </select>
+            <div *ngIf="availabilityDay.invalid && (availabilityDay.dirty || availabilityDay.touched)" class="text-danger">
+              <div *ngIf="availabilityDay.errors?.required">Please select a day.</div>
+            </div>
+
+            <label for="availability_start">Start Time:</label>
+            <input type="time" name="availability_start" required [(ngModel)]="formdata.availability_times[0].start_time" class="form-control" #availabilityStartTime="ngModel"/>
+            <div *ngIf="availabilityStartTime.invalid && (availabilityStartTime.dirty || availabilityStartTime.touched)" class="text-danger">
+              <div *ngIf="availabilityStartTime.errors?.required">Please enter a start time.</div>
+            </div>
+
+            <label for="availability_end">End Time:</label>
+            <input type="time" name="availability_end" required [(ngModel)]="formdata.availability_times[0].end_time" class="form-control" #availabilityEndTime="ngModel"/>
+            <div *ngIf="availabilityEndTime.invalid && (availabilityEndTime.dirty || availabilityEndTime.touched)" class="text-danger">
+              <div *ngIf="availabilityEndTime.errors?.required">Please enter an end time.</div>
+            </div>
+
+            <div *ngIf="availabilityStartTime.value && availabilityEndTime.value && availabilityStartTime.value >= availabilityEndTime.value" class="text-danger">
+              End time must be later than start time.
+            </div>
         </div>
         <div class="mb-3 form-group">
             <legend style="font-size: 11.5pt;"><strong>Address</strong></legend>
             <label for="addressStreet">Street:</label>
-            <input type="text" name="addressStreet" [(ngModel)]="formdata.address[0].street" class="form-control" />
+            <input type="text" name="addressStreet" [(ngModel)]="formdata.address[0].street" #addressStreet="ngModel" pattern="^\d{5}$" required class="form-control" />
+            <div *ngIf="addressStreet.invalid && (addressStreet.dirty || addressStreet.touched)" class="text-danger">
+              Street is required and should be 5 digits.
+            </div>
             <label for="addressCity">City:</label>
-            <input type="text" name="addressCity" [(ngModel)]="formdata.address[0].city" class="form-control" />
+            <input type="text" name="addressCity" [(ngModel)]="formdata.address[0].city" #addressCity="ngModel" pattern="^\d{5}$" required class="form-control" />
+            <div *ngIf="addressCity.invalid && (addressCity.dirty || addressCity.touched)" class="text-danger">
+              City is required and should be 5 digits.
+            </div>
             <label for="addressState">State:</label>
-            <input type="text" name="addressState" [(ngModel)]="formdata.address[0].state" class="form-control" />
+            <input type="text" name="addressState" [(ngModel)]="formdata.address[0].state" #addressState="ngModel" pattern="^\d{5}$" required class="form-control" />
+            <div *ngIf="addressState.invalid && (addressState.dirty || addressState.touched)" class="text-danger">
+              State is required and should be 5 digits.
+            </div>
             <label for="addressZipCode">Zip Code:</label>
-            <input type="text" name="addressZipCode" [(ngModel)]="formdata.address[0].zip_code" class="form-control" />
-          </div>
+            <input type="text" name="addressZipCode" [(ngModel)]="formdata.address[0].zip_code" #addressZipCode="ngModel" pattern="^\d{5}$" required class="form-control" />
+            <div *ngIf="addressZipCode.invalid && (addressZipCode.dirty || addressZipCode.touched)" class="text-danger">
+              Zip code is required and should be 5 digits.
+            </div>
+        </div>
+
         <div class="mb-3 form-group">
             <legend style="font-size: 11.5pt;"><strong>Contact Information</strong></legend>
             <label for="homeNumber">Home:</label>
@@ -57,19 +134,41 @@
             <label for="cellNumber">Cell:</label>
             <input type="tel" name="cellNumber" required [(ngModel)]="formdata.phone_numbers[0].cell" class="form-control" />
           </div>
-        <div  class="mb-3">
+        <!-- <div  class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="fieldset" required name="email" [(ngModel)]="formdata.email" class="form-control"/>
-        </div>
+        </div> -->
         <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" [(ngModel)]="formdata.email" #email="ngModel" required class="form-control" />
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="text-danger">
+                <small *ngIf="email.errors?.[required]">Email is required.</small>
+                <small *ngIf="email.errors?.[email]">Please enter a valid email address.</small>
+            </div>
+        </div>
+        <!-- <div class="mb-3">
             <label for="education" class="form-label">Educational Background</label>
             <input type="text" name="education" [(ngModel)]="formdata.educational_background" class="form-control"/>
+        </div> -->
+        <div class="mb-3">
+            <label for="education" class="form-label">Educational Background</label>
+            <input 
+              type="text" name="education" [(ngModel)]="formdata.educational_background" required minlength="5" maxlength="100" class="form-control" #education="ngModel"/>
+            
+            <div *ngIf="education.invalid && (education.dirty || education.touched)" class="text-danger">
+              <div *ngIf="education.errors?.required">Educational background is required.</div>
+              <div *ngIf="education.errors?.minlength">Educational background must be at least 5 characters long.</div>
+              <div *ngIf="education.errors?.maxlength">Educational background cannot be more than 100 characters long.</div>
+            </div>
         </div>
         <div class="mb-3">
             <label for="licenses" class="form-label">Current Licenses</label>
-            <input type="text" name="licenses" [(ngModel)]="formdata.current_licenses" class="form-control"/>
+            <input type="text" name="licenses" [(ngModel)]="formdata.current_licenses" #licenses="ngModel" pattern="^[a-zA-Z0-9\s,]+$" class="form-control" />
+            <div *ngIf="licenses.invalid && (licenses.dirty || licenses.touched)" class="invalid-feedback">
+              Current Licenses should be at least 3 characters long.
+            </div>
         </div>
-        <div class="mb-3 form-group">
+        <!-- <div class="mb-3 form-group">
             <legend style="font-size: 11.5pt;"><strong>Emergency Contact</strong></legend>
             <label for="emergName">Name:</label>
             <input type="text" name="emergName" [(ngModel)]="formdata.emergency_contact[0].name" class="form-control" />
@@ -87,7 +186,51 @@
             <input type="text" name="emergState" [(ngModel)]="formdata.emergency_contact[0].address[0].state" class="form-control" />
             <label for="emergZipCode">Zip Code:</label>
             <input type="text" name="emergZipCode" [(ngModel)]="formdata.emergency_contact[0].address[0].zip_code" class="form-control" />
-          </div>
+          </div> -->
+        <div class="mb-3 form-group">
+            <legend style="font-size: 11.5pt;"><strong>Emergency Contact</strong></legend>
+            <label for="emergName">Name:</label>
+            <input type="text" name="emergName" [(ngModel)]="formdata.emergency_contact[0].name" #emergName="ngModel" required pattern="^[a-zA-Z\s]+$" class="form-control" />
+            <div *ngIf="emergName.invalid && (emergName.dirty || emergName.touched)" class="text-danger">
+              Name should only contain letters and spaces.
+            </div>
+            <label for="emergNumber1">Home Phone:</label>
+            <input class="form-control" style="margin-top: 10px; margin-right:7px;" type="tel" name="emergNumber1" [(ngModel)]="formdata.emergency_contact[0].phone_number[0].home" #emergNumber1="ngModel" pattern="^\d{10}$" />
+            <div *ngIf="emergNumber1.invalid && (emergNumber1.dirty || emergNumber1.touched)" class="text-danger">
+              Home phone number should be 10 digits.
+            </div>
+            <label for="emergNumber2">Work Phone:</label>
+            <input class="form-control" type="tel" name="emergNumber2" [(ngModel)]="formdata.emergency_contact[0].phone_number[0].work" #emergNumber2="ngModel" pattern="^\d{10}$" />
+            <div *ngIf="emergNumber2.invalid && (emergNumber2.dirty || emergNumber2.touched)" class="text-danger">
+              Work phone number should be 10 digits.
+            </div>
+            <label for="emergEmail">Email:</label>
+            <input type="email" name="emergEmail" [(ngModel)]="formdata.emergency_contact[0].email" #emergEmail="ngModel" required class="form-control" />
+            <div *ngIf="emergEmail.invalid && (emergEmail.dirty || emergEmail.touched)" class="text-danger">
+              A valid email address is required.
+            </div>
+            <label for="emergStreet">Street Address:</label>
+            <input type="text" name="emergStreet" [(ngModel)]="formdata.emergency_contact[0].address[0].street" #emergStreet="ngModel" class="form-control" />
+            <div *ngIf="emergStreet.invalid && (emergStreet.dirty || emergStreet.touched)" class="text-danger">
+              Street address is required.
+            </div>
+            <label for="emergCity">City:</label>
+            <input type="text" name="emergCity" [(ngModel)]="formdata.emergency_contact[0].address[0].city" #emergCity="ngModel" pattern="^[a-zA-Z\s]+$" class="form-control" />
+            <div *ngIf="emergCity.invalid && (emergCity.dirty || emergCity.touched)" class="text-danger">
+              City should only contain letters and spaces.
+            </div>
+            <label for="emergState">State:</label>
+            <input type="text" name="emergState" [(ngModel)]="formdata.emergency_contact[0].address[0].state" #emergState="ngModel" required pattern="^[a-zA-Z\s]+$" class="form-control" />
+            <div *ngIf="emergState.invalid && (emergState.dirty || emergState.touched)" class="text-danger">
+              State is required and should only contain letters and spaces.
+            </div>
+            <label for="emergZipCode">Zip Code:</label>
+            <input type="text" name="emergZipCode" [(ngModel)]="formdata.emergency_contact[0].address[0].zip_code" #emergZipCode="ngModel" pattern="^\d{5}$" class="form-control" />
+            <div *ngIf="emergZipCode.invalid && (emergZipCode.dirty || emergZipCode.touched)" class="text-danger">
+              Zip code should be 5 digits.
+            </div>
+        </div>
+          
 
         <div class="mb-3">
                 <input type="checkbox" name="drivers_license_on_file" [(ngModel)]="formdata.drivers_license_on_file" class="drivers-license"/>
@@ -108,7 +251,7 @@
                 <option>Inactive</option>
             </select>
         </div>
-        <button type="button" (click)="createVolunteer()" class="btn btn-primary custom-margin-top">Create</button>
+        <button type="submit" (click)="createVolunteer()" class="btn btn-primary custom-margin-top">Create</button>
         <button type="button" [routerLink]="['/manageVolunteer']" class="btn btn-primary custom-margin-top">Go Back</button>
     </form>
 </div>

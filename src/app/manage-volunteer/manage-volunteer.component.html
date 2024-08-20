@@ -2,7 +2,7 @@
 <div class="background-image"></div>
 <div class="container mt-3">
 
-    <h2 class="text-center custom-heading">Manage Volunteer</h2>
+    <h2 class="text-center custom-heading">Manage Volunteers</h2>
     <hr class="black-divider">
 
     <div class="row mb-3 align-items-center opaque-bg top-bar">
@@ -10,11 +10,11 @@
             <a class="navbar-brand">Volunteers</a>
         </div>
         <div class="col-md-5">
-            <input type="text" class="form-control" placeholder="Search Volunteers..." (input)="onSearch($event)">
+            <input type="text" class="form-control custom-margin-top custom-border" placeholder="Search Volunteers..." (input)="onSearch($event)">
         </div>
         <div class="col-md-2">
             <div class="dropdown">
-                <button class="btn btn-secondary w-100" (click)="toggleDropdown()">
+                <button class="btn btn-secondary w-100 custom-margin-top custom-border" (click)="toggleDropdown()">
                     Filter 
                     <i class="bi bi-chevron-down"></i>
                 </button>
@@ -29,7 +29,7 @@
             </div>
         </div>
         <div class="col-md-2 text-end">
-            <button class="btn btn-primary w-100" routerLink="/createVolunteer">+ Add Volunteer</button>
+            <button class="btn btn-primary w-100 custom-margin-top" routerLink="/createVolunteer">+ Add Volunteer</button>
         </div>
     </div>
 <table class="table opaque-bg" *ngIf="filteredVolunteers.length > 0">
