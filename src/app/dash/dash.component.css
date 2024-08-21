@@ -51,7 +51,7 @@ td {
 
 /* Background Image with Blur Effect */
 .background-image {
-    background: url('/images/grass-background.jpg') no-repeat center center fixed;
+    background: url('/images/mesh-background.png') no-repeat center center fixed;
     background-size: cover;
     filter: blur(5px);
     position: fixed; 
