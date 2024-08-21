@@ -7,6 +7,10 @@
     margin-right: 5px;
 }
 
+.custom-margin-bottom {
+    margin-bottom: 12px;
+}
+
 .ssn,.drivers-license {
     margin-right: 10px;
 }

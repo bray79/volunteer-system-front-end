@@ -52,8 +52,8 @@
             <td>
                 <!-- FIX LATER: [routerLink]="['/manageOpportunities/volunteers', vol.id]" -->
                 <button type="button" (click)="viewMatchedVolunteers(vol.id)" class="btn btn-success custom-margin-right custom-margin-top">View Opportunity Matches</button>
-                <a href="" class="btn btn-primary" [routerLink]="['/editVolunteer', vol.id]">Edit</a>
-                <button type="button" (click)="deleteVolunteer(vol.id)" class="btn btn-danger custom-margin-left">Delete</button>
+                <a href="" class="btn btn-primary custom-margin-top" [routerLink]="['/editVolunteer', vol.id]">Edit</a>
+                <button type="button" (click)="deleteVolunteer(vol.id)" class="btn btn-danger custom-margin-left custom-margin-top">Delete</button>
             </td>
             <tr *ngIf="selectedVolunteerID === vol.id">
                 <td colspan="10">
