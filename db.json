@@ -14,17 +14,17 @@
       "endTime": "15:00"
     },
     {
-        "id": "2",
-        "opportunityName": "LAN Party Hosting",
-        "centerName": "Center 2",
-        "description": "Help host a LAN party for charity. All profits from participation go to charity.",
-        "date": "2024-11-15",
-        "start_time": "20:00",
-        "end_time": "16:00",
-        "location": "Oakleaf",
-        "status": "upcoming",
-        "startTime": "13:10",
-        "endTime": "16:10"
+      "id": "2",
+      "opportunityName": "LAN Party Hosting",
+      "centerName": "Center 2",
+      "description": "Help host a LAN party for charity. All profits from participation go to charity.",
+      "date": "2024-11-15",
+      "start_time": "20:00",
+      "end_time": "16:00",
+      "location": "Oakleaf",
+      "status": "upcoming",
+      "startTime": "13:10",
+      "endTime": "16:10"
     },
     {
       "id": "3",
@@ -55,209 +55,248 @@
   ],
   "volunteers": [
     {
-      "id":1,
+      "id": 1,
       "first_name": "Andreas",
       "last_name": "Ink",
       "username": "andreas_ink",
       "password": "password_hash",
-      "preferred_centers": ["Center A", "Center B"],
-      "skills_interests": ["Teaching", "Event Planning"],
+      "preferred_centers": [
+        "Center A",
+        "Center B"
+      ],
+      "skills_interests": [
+        "Teaching",
+        "Event Planning"
+      ],
       "availability_times": [
-          {
-              "day": "Monday",
-              "start_time": "09:00",
-              "end_time": "17:00"
-          },
-          {
-              "day": "Wednesday",
-              "start_time": "12:00",
-              "end_time": "20:00"
-          }
+        {
+          "day": "Monday",
+          "start_time": "09:00",
+          "end_time": "17:00"
+        },
+        {
+          "day": "Wednesday",
+          "start_time": "12:00",
+          "end_time": "20:00"
+        }
       ],
       "address": {
-          "street": "123 Main St",
-          "city": "Jacksonville",
-          "state": "FL",
-          "zip_code": "32256"
+        "street": "123 Main St",
+        "city": "Jacksonville",
+        "state": "FL",
+        "zip_code": "32256"
       },
       "phone_numbers": {
-          "home": "123-456-7890",
-          "work": "098-765-4321",
-          "cell": "555-555-5555"
+        "home": "123-456-7890",
+        "work": "098-765-4321",
+        "cell": "555-555-5555"
       },
       "email": "test@gmail.com",
       "educational_background": "Bachelor of Science in Information Science",
-      "current_licenses": ["Driver's License", "First Aid Certification"],
+      "current_licenses": [
+        "Driver's License",
+        "First Aid Certification"
+      ],
       "emergency_contact": {
-          "name": "John Doe",
-          "phone": {
-              "home": "321-654-9870",
-              "work": "876-543-2109"
-          },
-          "email": "johndoe@example.com",
-          "address": {
-              "street": "456 Elm St",
-              "city": "Jacksonville",
-              "state": "FL",
-              "zip_code": "32257"
-          }
+        "name": "John Doe",
+        "phone": {
+          "home": "321-654-9870",
+          "work": "876-543-2109"
+        },
+        "email": "johndoe@example.com",
+        "address": {
+          "street": "456 Elm St",
+          "city": "Jacksonville",
+          "state": "FL",
+          "zip_code": "32257"
+        }
       },
       "drivers_license_on_file": true,
       "social_security_card_on_file": true,
       "approval_status": "approved",
       "notes": "Andreas expressed interest in expanding his volunteer efforts to include community outreach. Follow-up suggested to discuss potential opportunities.",
-      "opportunities_ids": [1]
+      "opportunities_ids": [
+        1
+      ]
     },
     {
-        "id":2,
-        "first_name": "Micah",
-        "last_name": "van Meurs",
-        "username": "micah_vanmeurs",
-        "password": "password_hash",
-        "preferred_centers": ["Center N", "Center I", "Center C", "Center E"],
-        "skills_interests": ["Gardening", "PC Building"],
-        "availability_times": [
-            {
-                "day": "Monday",
-                "start_time": "09:00",
-                "end_time": "17:00"
-            },
-            {
-                "day": "Tuesday",
-                "start_time": "12:00",
-                "end_time": "20:00"
-            }
-        ],
+      "id": 2,
+      "first_name": "Micah",
+      "last_name": "van Meurs",
+      "username": "micah_vanmeurs",
+      "password": "password_hash",
+      "preferred_centers": [
+        "Center N",
+        "Center I",
+        "Center C",
+        "Center E"
+      ],
+      "skills_interests": [
+        "Gardening",
+        "PC Building"
+      ],
+      "availability_times": [
+        {
+          "day": "Monday",
+          "start_time": "09:00",
+          "end_time": "17:00"
+        },
+        {
+          "day": "Tuesday",
+          "start_time": "12:00",
+          "end_time": "20:00"
+        }
+      ],
+      "address": {
+        "street": "123 Main St",
+        "city": "Gainsville",
+        "state": "FL",
+        "zip_code": "35689"
+      },
+      "phone_numbers": {
+        "home": "123-456-7890",
+        "work": "098-765-4321",
+        "cell": "555-555-5555"
+      },
+      "email": "micah@test.com",
+      "educational_background": "Bachelor of Science in Information Science",
+      "current_licenses": [
+        "Driver's License"
+      ],
+      "emergency_contact": {
+        "name": "Jane Doe",
+        "phone": {
+          "home": "321-654-9870",
+          "work": "876-543-2109"
+        },
+        "email": "Jane.Doe@example.com",
         "address": {
-            "street": "123 Main St",
-            "city": "Gainsville",
-            "state": "FL",
-            "zip_code": "35689"
-        },
-        "phone_numbers": {
-            "home": "123-456-7890",
-            "work": "098-765-4321",
-            "cell": "555-555-5555"
-        },
-        "email": "micah@test.com",
-        "educational_background": "Bachelor of Science in Information Science",
-        "current_licenses": ["Driver's License"],
-        "emergency_contact": {
-            "name": "Jane Doe",
-            "phone": {
-                "home": "321-654-9870",
-                "work": "876-543-2109"
-            },
-            "email": "Jane.Doe@example.com",
-            "address": {
-                "street": "456 Elm St",
-                "city": "Gainsville",
-                "state": "FL",
-                "zip_code": "35689"
-            }
-        },
-        "drivers_license_on_file": true,
-        "social_security_card_on_file": false,
-        "approval_status": "approved",
-        "notes": "Micah likes building gardens in PC cases.",
-        "opportunities_ids": [2,3]
+          "street": "456 Elm St",
+          "city": "Gainsville",
+          "state": "FL",
+          "zip_code": "35689"
+        }
+      },
+      "drivers_license_on_file": true,
+      "social_security_card_on_file": false,
+      "approval_status": "approved",
+      "notes": "Micah likes building gardens in PC cases.",
+      "opportunities_ids": [
+        2,
+        3
+      ]
     },
     {
-        "id":3,
-        "first_name": "Josh",
-        "last_name": "Cool",
-        "username": "josh_cool",
-        "password": "password_hash",
-        "preferred_centers": ["Center C", "Center D"],
-        "skills_interests": ["Book Reading", "Book Putting Backing"],
-        "availability_times": [
-            {
-                "day": "Tuesday",
-                "start_time": "05:00",
-                "end_time": "11:00"
-            },
-            {
-                "day": "Tuesday",
-                "start_time": "16:00",
-                "end_time": "20:00"
-            }
-        ],
+      "id": 3,
+      "first_name": "Josh",
+      "last_name": "Cool",
+      "username": "josh_cool",
+      "password": "password_hash",
+      "preferred_centers": [
+        "Center C",
+        "Center D"
+      ],
+      "skills_interests": [
+        "Book Reading",
+        "Book Putting Backing"
+      ],
+      "availability_times": [
+        {
+          "day": "Tuesday",
+          "start_time": "05:00",
+          "end_time": "11:00"
+        },
+        {
+          "day": "Tuesday",
+          "start_time": "16:00",
+          "end_time": "20:00"
+        }
+      ],
+      "address": {
+        "street": "123 Main St",
+        "city": "Jacksonville Downtown",
+        "state": "FL",
+        "zip_code": "35689"
+      },
+      "phone_numbers": {
+        "home": "123-456-7890",
+        "work": "098-765-4321",
+        "cell": "555-555-5555"
+      },
+      "email": "josh@awesome.com",
+      "educational_background": "Bachelor of Science in Information Science",
+      "current_licenses": [
+        "Driver's License",
+        "First Aid Certification"
+      ],
+      "emergency_contact": {
+        "name": "Janice Cool",
+        "phone": {
+          "home": "321-654-9870",
+          "work": "876-543-2109"
+        },
+        "email": "janice.cool@awesome.com",
         "address": {
-            "street": "123 Main St",
-            "city": "Jacksonville Downtown",
-            "state": "FL",
-            "zip_code": "35689"
-        },
-        "phone_numbers": {
-            "home": "123-456-7890",
-            "work": "098-765-4321",
-            "cell": "555-555-5555"
-        },
-        "email": "josh@awesome.com",
-        "educational_background": "Bachelor of Science in Information Science",
-        "current_licenses": ["Driver's License", "First Aid Certification"],
-        "emergency_contact": {
-            "name": "Janice Cool",
-            "phone": {
-                "home": "321-654-9870",
-                "work": "876-543-2109"
-            },
-            "email": "janice.cool@awesome.com",
-            "address": {
-                "street": "123 Cool St",
-                "city": "Gainsville",
-                "state": "FL",
-                "zip_code": "85236"
-            }
-        },
-        "drivers_license_on_file": true,
-        "social_security_card_on_file": false,
-        "approval_status": "pending approval",
-        "notes": "Josh is cool all around.",
-        "opportunities_ids": [3,4]
+          "street": "123 Cool St",
+          "city": "Gainsville",
+          "state": "FL",
+          "zip_code": "85236"
+        }
+      },
+      "drivers_license_on_file": true,
+      "social_security_card_on_file": false,
+      "approval_status": "pending approval",
+      "notes": "Josh is cool all around.",
+      "opportunities_ids": [
+        3,
+        4
+      ]
     },
     {
-        "id":4,
-        "first_name": "Not",
-        "last_name": "Cool Guy",
-        "username": "uncool_man",
-        "password": "password_hash",
-        "preferred_centers": [],
-        "skills_interests": ["Nothing", "Looking Uncool"],
-        "availability_times": [],
+      "id": 4,
+      "first_name": "Not",
+      "last_name": "Cool Guy",
+      "username": "uncool_man",
+      "password": "password_hash",
+      "preferred_centers": [],
+      "skills_interests": [
+        "Nothing",
+        "Looking Uncool"
+      ],
+      "availability_times": [],
+      "address": {
+        "street": "123 Main St",
+        "city": "Gainsville",
+        "state": "FL",
+        "zip_code": "35689"
+      },
+      "phone_numbers": {
+        "home": "123-456-7890",
+        "work": "098-765-4321",
+        "cell": "555-555-5555"
+      },
+      "email": "not_cool@notawesome.com",
+      "educational_background": "",
+      "current_licenses": [],
+      "emergency_contact": {
+        "name": "Jane Doe",
+        "phone": {
+          "home": "321-654-9870",
+          "work": "876-543-2109"
+        },
+        "email": "Jane.Doe@example.com",
         "address": {
-            "street": "123 Main St",
-            "city": "Gainsville",
-            "state": "FL",
-            "zip_code": "35689"
-        },
-        "phone_numbers": {
-            "home": "123-456-7890",
-            "work": "098-765-4321",
-            "cell": "555-555-5555"
-        },
-        "email": "not_cool@notawesome.com",
-        "educational_background": "",
-        "current_licenses": [],
-        "emergency_contact": {
-            "name": "Jane Doe",
-            "phone": {
-                "home": "321-654-9870",
-                "work": "876-543-2109"
-            },
-            "email": "Jane.Doe@example.com",
-            "address": {
-                "street": "789 Uncool St",
-                "city": "Grumpsville",
-                "state": "GA",
-                "zip_code": "00000"
-            }
-        },
-        "drivers_license_on_file": false,
-        "social_security_card_on_file": false,
-        "approval_status": "disapproved",
-        "notes": "He's very uncool.",
-        "opportunities_ids": []
+          "street": "789 Uncool St",
+          "city": "Grumpsville",
+          "state": "GA",
+          "zip_code": "00000"
+        }
+      },
+      "drivers_license_on_file": false,
+      "social_security_card_on_file": false,
+      "approval_status": "disapproved",
+      "notes": "He's very uncool.",
+      "opportunities_ids": []
     }
   ]
 }
