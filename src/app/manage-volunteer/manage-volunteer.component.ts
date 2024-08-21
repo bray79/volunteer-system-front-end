@@ -56,7 +56,7 @@ export class ManageVolunteerComponent implements OnInit {
     );
   }
   deleteVolunteer(id: string) {
-    const confirmed = window.confirm('Are you sure you want to delete this opportunity?');
+    const confirmed = window.confirm('Are you sure you want to delete this volunteer?');
   
     if (confirmed) {
       this.volSvc.deleteVolunteers(id).subscribe({

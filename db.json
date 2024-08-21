@@ -16,7 +16,7 @@
     {
       "id": "2",
       "opportunityName": "LAN Party Hosting",
-      "centerName": "Center 2",
+      "centerName": "Center N",
       "description": "Help host a LAN party for charity. All profits from participation go to charity.",
       "date": "2024-11-15",
       "start_time": "20:00",
@@ -29,9 +29,9 @@
     {
       "id": "3",
       "opportunityName": "Library Volunteer",
-      "centerName": "Center 1",
+      "centerName": "Center E",
       "description": "Help put books back and earn volunteer time for your school!",
-      "date": "2024-8-20",
+      "date": "2024-08-31",
       "start_time": "1:00",
       "end_time": "17:00",
       "location": "Jacksonville Downtown",
@@ -42,7 +42,7 @@
     {
       "id": "4",
       "opportunityName": "Soup Kitchen",
-      "centerName": "Center 3",
+      "centerName": "Center O",
       "description": "Help host a LAN party for charity. All profits from participation go to charity.",
       "date": "2024-12-31",
       "start_time": "20:00",
@@ -60,7 +60,11 @@
       "last_name": "Ink",
       "user_name": "andreas_ink",
       "password": "password_hash",
-      "preferred_centers": ["a","b","c"],
+      "preferred_centers": [
+        "a",
+        "b",
+        "c"
+      ],
       "skills_interests": "Teaching,Event Planning",
       "availability_times": [
         {
