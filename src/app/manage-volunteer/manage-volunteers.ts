@@ -17,5 +17,5 @@ export interface ManageVolunteers {
     social_security_card_on_file: boolean,
     approval_status: string,
     notes: string,
-    opportunities_ids: number[]
+    opportunities_ids: string[]
 }
