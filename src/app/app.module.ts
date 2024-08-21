@@ -11,6 +11,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ManageVolunteerComponent } from './manage-volunteer/manage-volunteer.component';
 import { ManageOpportunitiesModule } from './manage-opportunities/manage-opportunities.module';
 import { DashComponent } from './dash/dash.component';
+import { CreateVolunteerComponent } from './create-volunteer/create-volunteer.component';
+import { EditVolunteerComponent } from './edit-volunteer/edit-volunteer.component';
+import { OpportunityListComponent } from './manage-volunteer/opportunities-list/opportunities-list.component';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +23,10 @@ import { DashComponent } from './dash/dash.component';
     LayoutComponent,
     DashboardComponent,
     ManageVolunteerComponent,
-    DashComponent
+    DashComponent,
+    CreateVolunteerComponent,
+    EditVolunteerComponent,
+    OpportunityListComponent
   ],
   imports: [
     BrowserModule,

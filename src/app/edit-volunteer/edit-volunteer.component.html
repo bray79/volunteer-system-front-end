@@ -1,0 +1,114 @@
+<app-layout></app-layout>
+<div class="container">
+    <legend>Edit Volunteer</legend>
+    <form>
+        <div class="mb-3">
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" name="firstname" [(ngModel)]="formdata.first_name" required class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Last Name</label>
+            <input type="text" name="lastname" [(ngModel)]="formdata.last_name" required class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="username" class="form-label">User Name</label>
+            <input type="text" name="username" [(ngModel)]="formdata.user_name" required class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="text" name="password" [(ngModel)]="formdata.password" required class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="centers" class="form-label">Preferred Centers</label>
+            <input type="text" name="centers" [(ngModel)]="formdata.preferred_centers" required class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="skills_interests" class="form-label">Skills or Interests</label>
+            <input type="text" name="skills_interests" [(ngModel)]="formdata.skills_interests" class="form-control"/>
+        </div>
+        <div class="mb-3 form-group">
+            <legend style="font-size: 11.5pt;"><strong>Availability</strong></legend>
+            <label for="availability_days">Days:</label>
+            <select name="availability_days" required [(ngModel)]="formdata.availability_times[0].day" multiple class="form-control">
+              <option *ngFor="let day of ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']">{{ day }}</option>
+            </select>
+            <label for="availability_start">Start Time: </label>
+            <input type="time" name="availability_start" [(ngModel)]="formdata.availability_times[0].start_time" class="form-control" />
+            <label for="availability_end">End Time: </label>
+            <input type="time" name="availability_end" [(ngModel)]="formdata.availability_times[0].end_time" class="form-control" />
+        </div>
+        <div class="mb-3 form-group">
+            <legend style="font-size: 11.5pt;"><strong>Address</strong></legend>
+            <label for="addressStreet">Street:</label>
+            <input type="text" name="addressStreet" [(ngModel)]="formdata.address[0].street" class="form-control" />
+            <label for="addressCity">City:</label>
+            <input type="text" name="addressCity" [(ngModel)]="formdata.address[0].city" class="form-control" />
+            <label for="addressState">State:</label>
+            <input type="text" name="addressState" [(ngModel)]="formdata.address[0].state" class="form-control" />
+            <label for="addressZipCode">Zip Code:</label>
+            <input type="text" name="addressZipCode" [(ngModel)]="formdata.address[0].zip_code" class="form-control" />
+          </div>
+        <div class="mb-3 form-group">
+            <legend style="font-size: 11.5pt;"><strong>Contact Information</strong></legend>
+            <label for="homeNumber">Home:</label>
+            <input type="tel" name="homeNumber" required [(ngModel)]="formdata.phone_numbers[0].home" class="form-control" />
+            <label for="workNumber">Work:</label>
+            <input type="tel" name="workNumber" required [(ngModel)]="formdata.phone_numbers[0].work" class="form-control" />
+            <label for="cellNumber">Cell:</label>
+            <input type="tel" name="cellNumber" required [(ngModel)]="formdata.phone_numbers[0].cell" class="form-control" />
+          </div>
+        <div  class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="fieldset" required name="email" [(ngModel)]="formdata.email" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="education" class="form-label">Educational Background</label>
+            <input type="text" name="education" [(ngModel)]="formdata.educational_background" class="form-control"/>
+        </div>
+        <div class="mb-3">
+            <label for="licenses" class="form-label">Current Licenses</label>
+            <input type="text" name="licenses" [(ngModel)]="formdata.current_licenses" class="form-control"/>
+        </div>
+        <div class="mb-3 form-group">
+            <legend style="font-size: 11.5pt;"><strong>Emergency Contact</strong></legend>
+            <label for="emergName">Name:</label>
+            <input type="text" name="emergName" [(ngModel)]="formdata.emergency_contact[0].name" class="form-control" />
+            <label for="emergNumber1">Home Phone:</label>
+            <input class="form-control" style="margin-top: 10px; margin-right:7px;"type="tel" name="emergNumber1" [(ngModel)]="formdata.emergency_contact[0].phone_number[0].home"/>
+            <label for="emergNumber2">Work Phone:</label>
+            <input class="form-control" type="tel" name="emergNumber2" [(ngModel)]="formdata.emergency_contact[0].phone_number[0].work"/>
+            <label for="emergEmail">Email:</label>
+            <input type="email" name="emergEmail" [(ngModel)]="formdata.emergency_contact[0].email" class="form-control" />
+            <label for="emergStreet">Street Address:</label>
+            <input type="text" name="emergStreet" [(ngModel)]="formdata.emergency_contact[0].address[0].street" class="form-control" />
+            <label for="emergCity">City:</label>
+            <input type="text" name="emergCity" [(ngModel)]="formdata.emergency_contact[0].address[0].city" class="form-control" />
+            <label for="emergState">State:</label>
+            <input type="text" name="emergState" [(ngModel)]="formdata.emergency_contact[0].address[0].state" class="form-control" />
+            <label for="emergZipCode">Zip Code:</label>
+            <input type="text" name="emergZipCode" [(ngModel)]="formdata.emergency_contact[0].address[0].zip_code" class="form-control" />
+          </div>
+
+        <div class="mb-3">
+                <input type="checkbox" name="drivers_license_on_file" [(ngModel)]="formdata.drivers_license_on_file" class="drivers-license"/>
+                <label for="drivers_license_on_file" class="form-label">Driver's License On File?</label>
+        </div>
+        <div class="mb-3">
+            <input type="checkbox" name="ssn_on_file" [(ngModel)]="formdata.social_security_on_file" class="ssn"/>
+            <label for="ssn_on_file">Social Security On File?</label>
+        </div>
+        <div class="mb-3" class="form-group">
+            <label for="approval_status" class="approval">
+                Approval Status:
+            </label>
+            <select required name="approval_status" id="approval_status" [(ngModel)]="formdata.approval_status">
+                <option>Approved</option>
+                <option>Pending Approval</option>
+                <option>Disapproved</option>
+                <option>Inactive</option>
+            </select>
+        </div>
+        <button type="button" (click)="editVolunteer()" class="btn btn-primary custom-margin-top custom-margin-bottom">Edit</button>
+        <button type="button" [routerLink]="['/manageVolunteer']" style="margin-left: 2%;" class="btn btn-primary custom-margin-top custom-margin-bottom">Go Back</button>
+    </form>
+</div>

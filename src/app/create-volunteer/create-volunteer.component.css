@@ -1,0 +1,27 @@
+.form-label {
+    margin-top: 10px;
+}
+
+.custom-margin-top {
+    margin-top: 12px;
+    margin-right: 5px;
+}
+
+.custom-margin-bottom {
+    margin-bottom: 12px;
+}
+
+.ssn,.drivers-license {
+    margin-right: 10px;
+}
+
+.approval {
+    margin-right: 10px;
+}
+.form-group {
+    margin-top: 10px;
+}
+
+/* .form-control {
+    margin-top: 15px;
+} */
