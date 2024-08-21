@@ -25,15 +25,31 @@
     </div>
 
     <div class="card-container">
-        <div class="card c-wide">
+        <div class="card c-wide" (click)="goToV()">
             <h3>Top Volunteers</h3>
-            <p>and the cow said moo and the cow said moo and the cow said moo and the cow said moo and the cow said moo and the cow said moo and the cow said moo and the cow said moo and the cow said moo</p>
             <table>
-                <tr></tr>
+                <thead>
+                    <th class="left"><u>Name</u></th>
+                    <th class="right"><u>Status</u></th>
+                </thead>
+                <tr *ngFor="let v of topVolunteers">
+                    <td class="left">{{ v.first_name }} {{ v.last_name }}</td>
+                    <td class="right">{{ v.approval_status }}</td>
+                </tr>
             </table>
         </div>
-        <div class="card c-wide">
+        <div class="card c-wide" (click)="goToO()">
             <h3>Top Opportunities</h3>
+            <table>
+                <thead>
+                    <th class="left"><u>Opportunity Name</u></th>
+                    <th class="right"><u>Center</u></th>
+                </thead>
+                <tr *ngFor="let o of topOpportunities">
+                    <td class="left">{{ o.opportunityName }}</td>
+                    <td class="right">{{ o.centerName }}</td>
+                </tr>
+            </table>
         </div>
     </div>
 </div>
