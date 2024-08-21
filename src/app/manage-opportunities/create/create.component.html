@@ -33,7 +33,9 @@
             <label for="txtStatus" class="form-label custom-margin-top">Event Status</label>
             <input type="text" name="status" [(ngModel)]="formdata.status" class="form-control" id="txtStatus" required/>
         </div>
+    
         <button type="button" (click)="createOpportunity()" class="btn btn-primary custom-margin-top">Create</button>
+        <button type="button" [routerLink]="['/manageOpportunities']" style="margin-left: 2%;" class="btn btn-primary custom-margin-top">Go Back</button>
     </form>
 </div>
 
