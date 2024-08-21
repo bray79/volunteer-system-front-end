@@ -34,5 +34,6 @@
             <input type="text" name="status" [(ngModel)]="formdata.status" class="form-control" id="txtStatus" required/>
         </div>
         <button type="button" (click)="updateOpportunity()" class="btn btn-primary custom-margin-top">Update</button>
+        <button type="button" [routerLink]="['/manageOpportunities']" style="margin-left: 2%;" class="btn btn-primary custom-margin-top">Go Back</button>
     </form>
 </div>
