@@ -61,7 +61,6 @@
       "user_name": "andreas_ink",
       "password": "password_hash",
       "preferred_centers": [
-
         "a",
         "b",
         "c"
@@ -117,7 +116,8 @@
       ],
       "drivers_license_on_file": true,
       "social_security_on_file": false,
-      "approval_status": "Approved"
+      "approval_status": "Approved",
+      "opportunities_ids": ["1","2"]
     },
     {
       "id": "2",
@@ -177,7 +177,8 @@
       ],
       "drivers_license_on_file": true,
       "social_security_on_file": false,
-      "approval_status": "Approved/Pending Approval"
+      "approval_status": "Approved/Pending Approval",
+      "opportunities_ids": ["2"]
     },
     {
       "id": "3",
@@ -236,7 +237,8 @@
       ],
       "drivers_license_on_file": true,
       "social_security_on_file": false,
-      "approval_status": "Pending Approval"
+      "approval_status": "Pending Approval",
+      "opportunities_ids": ["1","2","3","4"]
     },
     {
       "id": "4",
@@ -293,7 +295,8 @@
       ],
       "drivers_license_on_file": false,
       "social_security_on_file": false,
-      "approval_status": "Disapproved"
+      "approval_status": "Disapproved",
+      "opportunities_ids": []
     },
     {
       "id": "5",
@@ -354,7 +357,8 @@
       ],
       "drivers_license_on_file": true,
       "social_security_on_file": false,
-      "approval_status": "Inactive"
+      "approval_status": "Inactive",
+      "opportunities_ids": ["1","2"]
     }
   ]
 }
