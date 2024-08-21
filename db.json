@@ -61,6 +61,7 @@
       "user_name": "andreas_ink",
       "password": "password_hash",
       "preferred_centers": [
+
         "a",
         "b",
         "c"

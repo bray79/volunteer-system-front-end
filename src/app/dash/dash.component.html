@@ -1,0 +1,55 @@
+<app-layout></app-layout>
+
+<div class="background-image"></div>
+<div class="container mt-3">
+
+    <h2 class="text-center custom-heading">Admin Dashboard</h2>
+    <hr class="black-divider">
+
+    <!-- The Cards that involve Volunteers need to be fixed to get the volunteers -->
+    <div class="card-container">
+        <div class="card c-small" (click)="goToV()">
+            <h3>Total Volunteers</h3>
+            <p style="font-size: 70px;">{{ volunteersLength }}</p>
+        </div>
+
+        <div class="card c-small" (click)="goToO()">
+            <h3>Total Opportunities</h3>
+            <p style="font-size: 70px;">{{ opportunitiesLength }}</p>
+        </div>
+
+        <div class="card c-small">
+            <h3>Assigned Volunteers</h3>
+            <p style="font-size: 70px;">{{ assignedVolunteers }}</p>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div class="card c-wide" (click)="goToV()">
+            <h3>Top Volunteers</h3>
+            <table>
+                <thead>
+                    <th class="left"><u>Name</u></th>
+                    <th class="right"><u>Status</u></th>
+                </thead>
+                <tr *ngFor="let v of topVolunteers">
+                    <td class="left">{{ v.first_name }} {{ v.last_name }}</td>
+                    <td class="right">{{ v.approval_status }}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="card c-wide" (click)="goToO()">
+            <h3>Top Opportunities</h3>
+            <table>
+                <thead>
+                    <th class="left"><u>Opportunity Name</u></th>
+                    <th class="right"><u>Center</u></th>
+                </thead>
+                <tr *ngFor="let o of topOpportunities">
+                    <td class="left">{{ o.opportunityName }}</td>
+                    <td class="right">{{ o.centerName }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
